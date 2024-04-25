@@ -1,4 +1,8 @@
-# React Table v6
+# React Table v6 - Example
+
+** This is a copy of the Tanstack react-table v6 documentation hosted on the [tanstack repo](https://github.com/TanStack/table/tree/v6) for ease of consultation only.**
+
+---------------COPY --------------------------
 
 `react-table` is a **lightweight, fast and extendable datagrid** built for React
 

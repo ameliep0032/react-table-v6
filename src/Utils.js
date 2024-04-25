@@ -20,28 +20,32 @@ const getRamdomDateInBetween = (start, end) => {
 const newRow = () => {
 
   return {
-    arrivalDatetime: getRamdomDateInBetween("2023-01-01", "2023-02-28"), //1713809820000,
-    averageDuration: null,
-    behaviours: 4,
-    companyEventId:
-      "VlMjOTk6OjpHLVZESUEtMDE2NzE4Ojo6TEFYOjo6MjAyNC0wNC0yMjo6Ojhocw==",
-    createdAt: 1714022712606,
-    origin: "LAX",
-    destination: "LHR",
+    arrivalDatetime: getRamdomDateInBetween("2023-01-01", "2023-02-28"),
+    test: [{
+        succeeded: true,
+        saved: Math.floor(Math.random() * 1500),
+    }, {
+        succeeded: true,
+        saved: Math.floor(Math.random() * 100),
+    }, {
+        succeeded: true,
+        saved: Math.floor(Math.random() * 300),
+    }, {
+        succeeded: false,
+        saved: Math.floor(Math.random() * 1000),
+    }
+    ],
+    origin: "XXX",
+    destination: "YYY",
     durationInMinutes: Math.floor(Math.random() * 100),
-    eventType: "FLIGHT",
-    failedReasons: 1,
-    flagged: false,
-    id: "822e7a0f-10f7-4de1-bdc4-4f16e0d2b0ed",
-    identifier: "99",
-    qualified: false,
+    id: "822e7a0f-10f7-4de1-bdc4",
     savings: 1798,
-    succedeedCount: 3,
-    totalFuelSaved: 1798,
+    succeededCount: Math.floor(Math.random() * 4),
+    overall: 4,
   };
 };
 
-export function makeData(len = 23) {
+export function makeData(len = 12) {
   return range(len).map((d) => {
     return {
       ...newRow(),

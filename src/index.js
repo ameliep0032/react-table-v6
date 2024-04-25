@@ -2,15 +2,15 @@ import React from "react";
 import { render } from "react-dom";
 import {
   makeData,
-  Logo,
   Tips,
   datetimeTinyFormatterUTC,
   sortDatetimes,
 } from "./Utils";
-
+import './index.css';
 // Import React Table
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import { ReactTableV8 } from "./v8Table";
 
 class App extends React.Component {
   constructor() {
@@ -30,16 +30,18 @@ class App extends React.Component {
               Header: "Departure",
               id: "arrivalDatetime",
               accessor: (item) => (
-                <span>{datetimeTinyFormatterUTC(item.arrivalDatetime)}</span>
+                datetimeTinyFormatterUTC(item.arrivalDatetime)
               ),
               minWidth: 100,
               maxWidth: 200,
-              sorting: (a, b) => sortDatetimes(a, b),
+              Cell: props => <div>{props.value}</div>,
+              sortMethod: (a, b) => sortDatetimes(a, b)
             },
             {
               Header: "Destination",
               id: "destination",
-              accessor: "destination",
+              accessor: flight => flight.origin + ' > ' + flight.destination,
+              Cell: props => <div>{props.value}</div>,
               minWidth: 100,
               maxWidth: 200,
             },
@@ -50,12 +52,13 @@ class App extends React.Component {
               maxWidth: 200,
             },
           ]}
+          sortable={true}
           defaultPageSize={10}
           className="-striped -highlight"
         />
         <br />
         <Tips />
-        <Logo />
+        <ReactTableV8 />
       </div>
     );
   }

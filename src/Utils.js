@@ -17,8 +17,8 @@ const getRamdomDateInBetween = (start, end) => {
   return new Date(Math.floor(Math.random() * (end - start + 1) + start));
 };
 
-const newPerson = () => {
-  const statusChance = Math.random();
+const newRow = () => {
+
   return {
     arrivalDatetime: getRamdomDateInBetween("2023-01-01", "2023-02-28"), //1713809820000,
     averageDuration: null,
@@ -26,6 +26,7 @@ const newPerson = () => {
     companyEventId:
       "VlMjOTk6OjpHLVZESUEtMDE2NzE4Ojo6TEFYOjo6MjAyNC0wNC0yMjo6Ojhocw==",
     createdAt: 1714022712606,
+    origin: "LAX",
     destination: "LHR",
     durationInMinutes: Math.floor(Math.random() * 100),
     eventType: "FLIGHT",
@@ -43,7 +44,7 @@ const newPerson = () => {
 export function makeData(len = 23) {
   return range(len).map((d) => {
     return {
-      ...newPerson(),
+      ...newRow(),
     };
   });
 }
@@ -59,26 +60,6 @@ export const sortDatetimes = (a, b) => {
   return -1;
 };
 
-export const Logo = () => (
-  <div
-    style={{
-      margin: "1rem auto",
-      display: "flex",
-      flexWrap: "wrap",
-      alignItems: "center",
-      justifyContent: "center",
-    }}
-  >
-    For more examples, visit {""}
-    <br />
-    <a href="https://github.com/react-tools/react-table" target="_blank">
-      <img
-        src="https://github.com/react-tools/media/raw/master/logo-react-table.png"
-        style={{ width: `150px`, margin: ".5em auto .3em" }}
-      />
-    </a>
-  </div>
-);
 
 export const Tips = () => (
   <div style={{ textAlign: "center" }}>

@@ -1,5 +1,36 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
     font-size: 14px;
+  }
+
+  table {
+    border: 1px solid lightgray;
+  }
+  
+  tbody {
+    border-bottom: 1px solid lightgray;
+  }
+  
+  th {
+    border-bottom: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    padding: 2px 4px;
+  }
+  td{
+    text-align: center;
+  }
+  
+  tfoot {
+    color: gray;
+  }
+  
+  tfoot th {
+    font-weight: normal;
   }

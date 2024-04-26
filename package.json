@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "autoprefixer": "^10.4.19",
     "moment": "^2.29.4",
-    "postcss": "^8.4.38",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "^5.0.1",
-    "react-table": "^6.8.6",
-    "tailwindcss": "^3.4.3"
+    "react-table": "^6.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

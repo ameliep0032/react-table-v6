@@ -20,6 +20,9 @@ class App extends React.Component {
   }
   render() {
     const { data } = this.state;
+    const noOrigin = data.every((item)=> item.origin === "XXX" )
+    const noSavings = data.every((item)=> item.savings === data[0].savings)
+    
     return (
       <div>
         <ReactTable
@@ -44,6 +47,7 @@ class App extends React.Component {
               Cell: props => <div>{props.value}</div>,
               minWidth: 100,
               maxWidth: 200,
+              sortable: !!noOrigin ? false : true
             },
             {
                 id: "savings",
@@ -57,7 +61,7 @@ class App extends React.Component {
                 },
                 minWidth: 100,
                 maxWidth: 200,
-                Cell: props => <div>{props.value} dollars</div>
+                Cell: props => <div>{props.value} dollars</div>,
               },
               
               {
@@ -76,14 +80,15 @@ class App extends React.Component {
               {
                 id: "projected-savings",
                 Header: "Max Savings",
-                accessor: () => {
-                    // here I have more logic here which might lead me to get a 0 in all rows
-                    const saved = 0;
+                accessor: (item) => {
+                    // here I have more logic here which might lead me to get the same value in all rows
+                    const saved = item.savings;
                     return saved;
                 },
                 minWidth: 100,
                 maxWidth: 200,
-                Cell: props => <div>{props.value} dollars</div>
+                Cell: props => <div>{props.value} dollars</div>,
+                sortable: !!noSavings ? false : true
               },
           ]}
           defaultSorted={[
